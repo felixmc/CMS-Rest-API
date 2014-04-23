@@ -22,7 +22,6 @@ public interface MediaService {
 
 	@GET
 	@Path("/user/{userId}")
-	@Produces("application/json")
 	String getMediaByUser(@PathParam("userId") Long id);
 
 	@POST

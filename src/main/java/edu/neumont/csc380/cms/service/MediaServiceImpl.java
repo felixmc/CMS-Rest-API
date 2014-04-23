@@ -6,8 +6,7 @@ import org.springframework.stereotype.Service;
 public class MediaServiceImpl implements MediaService {
 
 	public String getMedia(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		return "media with id " + id;
 	}
 
 	public String deleteMedia(Long id) {
@@ -17,7 +16,7 @@ public class MediaServiceImpl implements MediaService {
 
 	public String getMediaByUser(Long id) {
 		// TODO Auto-generated method stub
-		return null;
+		return "media with user id " + id;
 	}
 
 	public String setUserProfilePicture(Long id) {
@@ -27,7 +26,7 @@ public class MediaServiceImpl implements MediaService {
 
 	public String getMediaByAuction(Long id) {
 		// TODO Auto-generated method stub
-		return null;
+		return "media with auction id " + id;
 	}
 
 	public String addAuctionMedia(Long id) {
