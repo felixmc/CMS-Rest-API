@@ -14,12 +14,10 @@ import javax.ws.rs.Produces;
 public interface MediaService {
 	@GET
 	@Path("/{mediaId}")
-	@Produces("application/json")
 	String getMedia(@PathParam("mediaId") Long id);
 
 	@DELETE
 	@Path("/{mediaId}")
-	@Produces("application/json")
 	String deleteMedia(@PathParam("mediaId") Long id);
 
 	@GET
@@ -30,18 +28,15 @@ public interface MediaService {
 	@POST
 	@Path("/user/{userId}")
 	@Consumes("application/json")
-	@Produces("application/json")
 	String setUserProfilePicture(@PathParam("userId") Long id);
 
 	@GET
 	@Path("/auction/{auctionId}")
-	@Produces("application/json")
 	String getMediaByAuction(@PathParam("auctionId") Long id);
 
 	@POST
 	@Path("/auction/{auctionId}")
 	@Consumes("application/json")
-	@Produces("application/json")
 	String addAuctionMedia(@PathParam("auctionId") Long id);
 
 }
