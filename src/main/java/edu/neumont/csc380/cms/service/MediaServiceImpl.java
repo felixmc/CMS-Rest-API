@@ -2,6 +2,8 @@ package edu.neumont.csc380.cms.service;
 
 import org.springframework.stereotype.Service;
 
+import edu.neumont.csc380.cms.model.Media;
+
 @Service("mediaService")
 public class MediaServiceImpl implements MediaService {
 
@@ -19,7 +21,7 @@ public class MediaServiceImpl implements MediaService {
 		return "media with user id " + id;
 	}
 
-	public String setUserProfilePicture(Long id) {
+	public String setUserProfilePicture(Long id, Media media, Object data) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -29,7 +31,7 @@ public class MediaServiceImpl implements MediaService {
 		return "media with auction id " + id;
 	}
 
-	public String addAuctionMedia(Long id) {
+	public String addAuctionMedia(Long id, Media media, Object data) {
 		// TODO Auto-generated method stub
 		return null;
 	}
