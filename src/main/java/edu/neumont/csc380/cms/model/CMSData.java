@@ -18,6 +18,10 @@ public class CMSData {
 		return mediaMap.get(id);
 	}
 
+	public Media removeMedia(Long id) {
+		return mediaMap.remove(id);
+	}
+
 	private CMSData() {
 		mediaMap = new HashMap<Long, Media>();
 	}
