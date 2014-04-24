@@ -32,8 +32,13 @@ public class MediaServiceImpl implements MediaService {
 	}
 
 	public Response getMediaByUser(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		User user = CMSData.getInstance().getUser(id);
+
+		if (user == null) {
+			return Response.status(404).build();
+		} else {
+			return Response.ok(user).build();
+		}
 	}
 
 	public Response setUserProfilePicture(Long id, Media media, Object data) {
@@ -42,8 +47,13 @@ public class MediaServiceImpl implements MediaService {
 	}
 
 	public Response getMediaByAuction(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		Auction auction = CMSData.getInstance().getAuction(id);
+
+		if (auction == null) {
+			return Response.status(404).build();
+		} else {
+			return Response.ok(auction).build();
+		}
 	}
 
 	public Response addAuctionMedia(Long id, Media media, Object data) {

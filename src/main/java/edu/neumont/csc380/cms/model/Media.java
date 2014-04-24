@@ -7,7 +7,7 @@ public class Media {
 	private long id;
 	private long ownerId;
 	private MediaType type;
-	private String imgaeLocation;
+	private String imageLocation;
 	private String thumbnailLocation;
 	private String caption;
 	private Dimension dimensions;
@@ -17,7 +17,7 @@ public class Media {
 		this.id = id;
 		this.ownerId = ownerId;
 		this.type = type;
-		this.imgaeLocation = imageLocation;
+		this.imageLocation = imageLocation;
 		this.thumbnailLocation = thumbnailLocation;
 		this.caption = caption;
 		this.dimensions = dimensions;
@@ -49,11 +49,11 @@ public class Media {
 	}
 
 	public String getImgaeLocation() {
-		return imgaeLocation;
+		return imageLocation;
 	}
 
 	public void setImgaeLocation(String imgaeLocation) {
-		this.imgaeLocation = imgaeLocation;
+		this.imageLocation = imgaeLocation;
 	}
 
 	public String getThumbnailLocation() {
