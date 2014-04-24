@@ -5,6 +5,9 @@ import java.util.Map;
 
 public class CMSData {
 	private static Map<Long, Media> mediaMap;
+	private static Map<Long, User> userMap;
+	private static Map<Long, Auction> autionMap;
+	
 	private static CMSData data;
 
 	public static CMSData getInstance() {
