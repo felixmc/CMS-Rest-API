@@ -1,9 +1,10 @@
 package edu.neumont.csc380.cms.model;
 
 import java.awt.Dimension;
+import java.io.Serializable;
 import java.util.Date;
 
-public class Media {
+public class Media implements Serializable {
 	private long id;
 	private long ownerId;
 	private MediaType type;
@@ -12,15 +13,8 @@ public class Media {
 	private String caption;
 	private Dimension dimensions;
 	private Date dateCreated;
-	
-	public Media( long id, long ownerId, MediaType type, String imageLocation, String thumbnailLocation, String caption, Dimension dimensions ){
-		this.id = id;
-		this.ownerId = ownerId;
-		this.type = type;
-		this.imageLocation = imageLocation;
-		this.thumbnailLocation = thumbnailLocation;
-		this.caption = caption;
-		this.dimensions = dimensions;
+
+	public Media() {
 		this.dateCreated = new Date();
 	}
 

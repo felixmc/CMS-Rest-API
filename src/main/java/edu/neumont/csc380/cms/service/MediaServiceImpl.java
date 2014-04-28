@@ -72,13 +72,14 @@ public class MediaServiceImpl implements MediaService {
 
 	public Response addAuctionMedia(Long auctionId, Media media, Object data) {
 		CMSData cms = CMSData.getInstance();
-		Auction user = cms.getAuction(auctionId);
+		Auction auction = cms.getAuction(auctionId);
 
-		if (user == null) {
+		if (auction == null) {
 			return Response.status(404).build();
 		} else {
 			cms.addMedia(media);
-			return Response.ok(user).build();
+			auction.addMedia(media);
+			return Response.ok(auction).build();
 		}
 	}
 }
