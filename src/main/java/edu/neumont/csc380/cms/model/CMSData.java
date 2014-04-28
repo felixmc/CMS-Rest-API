@@ -7,6 +7,7 @@ public class CMSData {
 	private static Map<Long, Media> mediaMap;
 	private static Map<Long, User> userMap;
 	private static Map<Long, Auction> auctionMap;
+	private static long currentID;
 	
 	private static CMSData data;
 
@@ -15,6 +16,11 @@ public class CMSData {
 			data = new CMSData();
 		}
 		return data;
+	}
+	
+	private void addMedia(Media mediaObject){
+		mediaObject.setId(getId());
+		mediaMap.put(mediaObject.getId(), mediaObject);
 	}
 
 	public Media getMedia(Long id) {
@@ -27,6 +33,7 @@ public class CMSData {
 
 	private CMSData() {
 		mediaMap = new HashMap<Long, Media>();
+		currentID = 0;
 	}
 	
 	public User getUser(long id){
@@ -35,5 +42,10 @@ public class CMSData {
 	
 	public Auction getAuction(long id){
 		return auctionMap.get(id);
+	}
+	
+	public long getId(){
+		currentID++;
+		return currentID;
 	}
 }

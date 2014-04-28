@@ -13,14 +13,7 @@ public class Media {
 	private Dimension dimensions;
 	private Date dateCreated;
 	
-	public Media( long id, long ownerId, MediaType type, String imageLocation, String thumbnailLocation, String caption, Dimension dimensions ){
-		this.id = id;
-		this.ownerId = ownerId;
-		this.type = type;
-		this.imageLocation = imageLocation;
-		this.thumbnailLocation = thumbnailLocation;
-		this.caption = caption;
-		this.dimensions = dimensions;
+	public Media(){
 		this.dateCreated = new Date();
 	}
 
