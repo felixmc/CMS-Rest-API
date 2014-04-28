@@ -6,7 +6,7 @@ import java.util.Map;
 public class CMSData {
 	private static Map<Long, Media> mediaMap;
 	private static Map<Long, User> userMap;
-	private static Map<Long, Auction> autionMap;
+	private static Map<Long, Auction> auctionMap;
 	
 	private static CMSData data;
 
@@ -27,5 +27,13 @@ public class CMSData {
 
 	private CMSData() {
 		mediaMap = new HashMap<Long, Media>();
+	}
+	
+	public User getUser(long id){
+		return userMap.get(id);
+	}
+	
+	public Auction getAuction(long id){
+		return auctionMap.get(id);
 	}
 }

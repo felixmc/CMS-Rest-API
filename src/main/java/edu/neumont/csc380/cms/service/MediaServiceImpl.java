@@ -4,6 +4,7 @@ import javax.ws.rs.core.Response;
 
 import org.springframework.stereotype.Service;
 
+import edu.neumont.csc380.cms.model.Auction;
 import edu.neumont.csc380.cms.model.CMSData;
 import edu.neumont.csc380.cms.model.Media;
 import edu.neumont.csc380.cms.model.User;
