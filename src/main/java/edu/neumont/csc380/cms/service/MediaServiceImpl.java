@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import edu.neumont.csc380.cms.model.CMSData;
 import edu.neumont.csc380.cms.model.Media;
+import edu.neumont.csc380.cms.model.User;
 
 @Service("mediaService")
 public class MediaServiceImpl implements MediaService {
@@ -20,10 +21,13 @@ public class MediaServiceImpl implements MediaService {
 		}
 	}
 
+	public Response getMediaData(Long mediaId) {
+		return getMedia(mediaId);
+	}
+
 	public Response deleteMedia(Long id) {
 		Media media = CMSData.getInstance().removeMedia(id);
 
-		// TODO: Check authorization
 		if (media == null) {
 			return Response.status(404).build();
 		} else {
@@ -41,11 +45,6 @@ public class MediaServiceImpl implements MediaService {
 		}
 	}
 
-	public Response setUserProfilePicture(Long id, Media media, Object data) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 	public Response getMediaByAuction(Long id) {
 		Auction auction = CMSData.getInstance().getAuction(id);
 
@@ -56,7 +55,12 @@ public class MediaServiceImpl implements MediaService {
 		}
 	}
 
-	public Response addAuctionMedia(Long id, Media media, Object data) {
+	public Response setUserProfilePicture(Long userId, Media media, Object data) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Response addAuctionMedia(Long auctionId, Media media, Object data) {
 		// TODO Auto-generated method stub
 		return null;
 	}

@@ -22,6 +22,10 @@ public interface MediaService {
 	@Path("/{mediaId}")
 	Response getMedia(@PathParam("mediaId") Long id);
 
+	@GET
+	@Path("/{mediaId}/data")
+	Response getMediaData(@PathParam("mediaId") Long id);
+
 	@DELETE
 	@Path("/{mediaId}")
 	Response deleteMedia(@PathParam("mediaId") Long id);
