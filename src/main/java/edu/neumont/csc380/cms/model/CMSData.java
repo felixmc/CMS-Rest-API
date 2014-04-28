@@ -1,5 +1,6 @@
 package edu.neumont.csc380.cms.model;
 
+import java.awt.Dimension;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -32,8 +33,29 @@ public class CMSData {
 	}
 
 	private CMSData() {
-		mediaMap = new HashMap<Long, Media>();
 		currentID = 0;
+		mediaMap = new HashMap<Long, Media>();
+		userMap = new HashMap<Long, User>();
+		auctionMap = new HashMap<Long, Auction>();
+		
+		User user = new User();
+		user.setUserId(getId());
+		userMap.put(user.getUserId(),user);
+		Media userMedia = new Media();
+		addMedia(userMedia);
+		userMedia.setCaption("My profile pic! lolz");
+		userMedia.setOwnerId(user.getUserId());
+		userMedia.setImgaeLocation("/media/" + userMedia.getId() + "/" + "/data");
+		userMedia.setThumbnailLocation("/media/" + userMedia.getId() + "/" + "/thumb");
+		userMedia.setDimensions(new Dimension(100, 100));
+		userMedia.setType(MediaType.PNG);
+		user.addMedia(userMedia);
+		
+		Auction auction = new Auction();
+		auction.setAuctionId(auction.getAuctionId());
+		auctionMap.put(auction.getAuctionId(), auction);
+		auction.addMedia(userMedia);
+		
 	}
 
 	public User getUser(long id) {
