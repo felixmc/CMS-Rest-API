@@ -1,17 +1,20 @@
 package edu.neumont.csc380.cms.model;
 
-import java.awt.Dimension;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class Media implements Serializable {
 	private long id;
 	private long ownerId;
 	private MediaType type;
-	private String imageLocation;
+	private String mediaLocation;
 	private String thumbnailLocation;
 	private String caption;
-	private Dimension dimensions;
+	private int width;
+	private int height;
 	private Date dateCreated;
 
 	public Media() {
@@ -42,12 +45,12 @@ public class Media implements Serializable {
 		this.type = type;
 	}
 
-	public String getImgaeLocation() {
-		return imageLocation;
+	public String getMediaLocation() {
+		return mediaLocation;
 	}
 
-	public void setImgaeLocation(String imgaeLocation) {
-		this.imageLocation = imgaeLocation;
+	public void setMediaLocation(String imgaeLocation) {
+		this.mediaLocation = imgaeLocation;
 	}
 
 	public String getThumbnailLocation() {
@@ -66,13 +69,13 @@ public class Media implements Serializable {
 		this.caption = caption;
 	}
 
-	public Dimension getDimensions() {
-		return dimensions;
-	}
-
-	public void setDimensions(Dimension dimensions) {
-		this.dimensions = dimensions;
-	}
+	// public Dimension getDimensions() {
+	// return dimensions;
+	// }
+	//
+	// public void setDimensions(Dimension dimensions) {
+	// this.dimensions = dimensions;
+	// }
 
 	public Date getDateCreated() {
 		return dateCreated;
@@ -80,5 +83,21 @@ public class Media implements Serializable {
 
 	public void setDateCreated(Date dateCreated) {
 		this.dateCreated = dateCreated;
+	}
+
+	public int getHeight() {
+		return height;
+	}
+
+	public void setHeight(int height) {
+		this.height = height;
+	}
+
+	public int getWidth() {
+		return width;
+	}
+
+	public void setWidth(int width) {
+		this.width = width;
 	}
 }
