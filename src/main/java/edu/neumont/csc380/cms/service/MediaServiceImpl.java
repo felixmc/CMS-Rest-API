@@ -22,6 +22,7 @@ public class MediaServiceImpl implements MediaService {
 		}
 	}
 
+	// TODO: return actual data
 	public Response getMediaData(Long mediaId) {
 		return getMedia(mediaId);
 	}
@@ -57,12 +58,27 @@ public class MediaServiceImpl implements MediaService {
 	}
 
 	public Response setUserProfilePicture(Long userId, Media media, Object data) {
-		// TODO Auto-generated method stub
-		return null;
+		CMSData cms = CMSData.getInstance();
+		User user = cms.getUser(userId);
+
+		if (user == null) {
+			return Response.status(404).build();
+		} else {
+			cms.addMedia(media);
+			user.setProfilePicture(media.getId());
+			return Response.ok(user).build();
+		}
 	}
 
 	public Response addAuctionMedia(Long auctionId, Media media, Object data) {
-		// TODO Auto-generated method stub
-		return null;
+		CMSData cms = CMSData.getInstance();
+		Auction user = cms.getAuction(auctionId);
+
+		if (user == null) {
+			return Response.status(404).build();
+		} else {
+			cms.addMedia(media);
+			return Response.ok(user).build();
+		}
 	}
 }

@@ -7,6 +7,7 @@ public class User {
 	private long userId;
 	private List<Long> userImages;
 	private List<Long> userVideos;
+	private Long profilePicture;
 
 	public User(long userId, long mediaId, MediaType type) {
 		this.userId = userId;
