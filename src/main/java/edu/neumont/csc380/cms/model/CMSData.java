@@ -40,6 +40,7 @@ public class CMSData {
 		User user = new User();
 		user.setUserId(getId());
 		userMap.put(user.getUserId(), user);
+
 		Media userMedia = new Media();
 		addMedia(userMedia);
 		userMedia.setCaption("My profile pic! lolz");
@@ -48,15 +49,24 @@ public class CMSData {
 				+ "/data");
 		userMedia.setThumbnailLocation("/media/" + userMedia.getId() + "/"
 				+ "/thumb");
-		// userMedia.setDimensions(new Dimension(100, 100));
 		userMedia.setType(MediaType.PNG);
 		user.addMedia(userMedia);
 
-		Auction auction = new Auction();
-		auction.setAuctionId(auction.getAuctionId());
-		auctionMap.put(auction.getAuctionId(), auction);
-		auction.addMedia(userMedia);
+		Media userMedia2 = new Media();
+		addMedia(userMedia2);
+		userMedia2.setCaption("me and my cattt");
+		userMedia2.setOwnerId(user.getUserId());
+		userMedia2.setMediaLocation("/media/" + userMedia2.getId() + "/"
+				+ "/data");
+		userMedia2.setThumbnailLocation("/media/" + userMedia2.getId() + "/"
+				+ "/thumb");
+		userMedia2.setType(MediaType.JPEG);
+		user.addMedia(userMedia2);
 
+		Auction auction = new Auction();
+		auction.setAuctionId(getId());
+		auctionMap.put(auction.getAuctionId(), auction);
+		auction.addMedia(userMedia2);
 	}
 
 	public User getUser(long id) {
