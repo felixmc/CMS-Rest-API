@@ -43,7 +43,7 @@ public interface MediaService {
 	@Consumes("application/json")
 	Response setUserProfilePicture(@PathParam("userId") Long id,
 			@Multipart(value = "rootPart", type = "application/json") Media m,
-			@Multipart(value = "book2", type = "image/*") Object data);
+			@Multipart(value = "media", type = "image/*") byte[] data);
 
 	@GET
 	@Path("/auction/{auctionId}")
@@ -54,6 +54,6 @@ public interface MediaService {
 	@Consumes("application/json")
 	Response addAuctionMedia(@PathParam("auctionId") Long id,
 			@Multipart(value = "rootPart", type = "application/json") Media m,
-			@Multipart(value = "book2", type = "image/*") Object data);
+			@Multipart(value = "media", type = "image/*;video/*") byte[] data);
 
 }

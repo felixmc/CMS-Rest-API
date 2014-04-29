@@ -63,7 +63,7 @@ public class MediaServiceImpl implements MediaService {
 	}
 
 	// TODO: store image data
-	public Response setUserProfilePicture(Long userId, Media media, Object data) {
+	public Response setUserProfilePicture(Long userId, Media media, byte[] data) {
 		CMSData cms = CMSData.getInstance();
 		User user = cms.getUser(userId);
 
@@ -77,7 +77,7 @@ public class MediaServiceImpl implements MediaService {
 	}
 
 	// TODO: store image data
-	public Response addAuctionMedia(Long auctionId, Media media, Object data) {
+	public Response addAuctionMedia(Long auctionId, Media media, byte[] data) {
 		CMSData cms = CMSData.getInstance();
 		Auction auction = cms.getAuction(auctionId);
 

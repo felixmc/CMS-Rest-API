@@ -69,14 +69,6 @@ public class Media implements Serializable {
 		this.caption = caption;
 	}
 
-	// public Dimension getDimensions() {
-	// return dimensions;
-	// }
-	//
-	// public void setDimensions(Dimension dimensions) {
-	// this.dimensions = dimensions;
-	// }
-
 	public Date getDateCreated() {
 		return dateCreated;
 	}
