@@ -3,6 +3,7 @@ package edu.neumont.csc380.cms.service;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
+import javax.ws.rs.HeaderParam;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
@@ -11,8 +12,6 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
 
 import org.apache.cxf.jaxrs.ext.multipart.Multipart;
-
-import edu.neumont.csc380.cms.model.Media;
 
 @Path("/media")
 @Consumes("application/json")
@@ -38,22 +37,24 @@ public interface MediaService {
 	@Path("/user/{userId}")
 	Response getMediaByUser(@PathParam("userId") Long id);
 
-	@PUT
-	@Path("/user/{userId}")
-	@Consumes("application/json")
-	Response setUserProfilePicture(@PathParam("userId") Long id,
-			@Multipart(value = "rootPart", type = "application/json") Media m,
-			@Multipart(value = "media", type = "image/*") byte[] data);
-
 	@GET
 	@Path("/auction/{auctionId}")
 	Response getMediaByAuction(@PathParam("auctionId") Long id);
 
+	@PUT
+	@Path("/user/{userId}")
+	@Consumes("multipart/form-data")
+	Response setUserProfilePicture(@PathParam("userId") Long id,
+			@Multipart(value = "caption") String s,
+			@Multipart(value = "media") byte[] data,
+			@HeaderParam("content-type") String contentType);
+
 	@POST
 	@Path("/auction/{auctionId}")
-	@Consumes("application/json")
+	@Consumes("multipart/form-data")
 	Response addAuctionMedia(@PathParam("auctionId") Long id,
-			@Multipart(value = "rootPart", type = "application/json") Media m,
-			@Multipart(value = "media", type = "image/*;video/*") byte[] data);
+			@Multipart(value = "caption") String s,
+			@Multipart(value = "media") byte[] data,
+			@HeaderParam("content-type") String[] contentType);
 
 }

@@ -35,8 +35,8 @@ public class CMSData {
 	public Media getMedia(Long id) {
 		return mediaMap.get(id);
 	}
-	
-	public byte[] getData(long id){
+
+	public byte[] getData(long id) {
 		return dataMap.get(id);
 	}
 
@@ -51,18 +51,22 @@ public class CMSData {
 		auctionMap = new HashMap<Long, Auction>();
 		dataMap = new HashMap<Long, byte[]>();
 
+		String path = CMSData.class.getResource("").getPath()
+				+ "../../../../../../../";
+
 		User user = new User();
 		user.setUserId(getId());
 		userMap.put(user.getUserId(), user);
 
 		BufferedImage img = null;
 		try {
-		    img = ImageIO.read(new File("duck.jpg"));
+			img = ImageIO.read(new File(path + "cat.jpg"));
 		} catch (IOException e) {
+			e.printStackTrace();
 		}
-		
+
 		WritableRaster raster = img.getRaster();
-		DataBufferByte data   = (DataBufferByte) raster.getDataBuffer();
+		DataBufferByte data = (DataBufferByte) raster.getDataBuffer();
 
 		Media userMedia = new Media();
 		addMedia(userMedia, data.getData());
@@ -75,14 +79,14 @@ public class CMSData {
 		userMedia.setType(MediaType.JPEG);
 		user.addMedia(userMedia);
 
-		try{
-			img = ImageIO.read(new File("cat.jpg"));
-		}catch( IOException e){
-			
+		try {
+			img = ImageIO.read(new File(path + "duck.jpg"));
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
 		raster = img.getRaster();
 		data = (DataBufferByte) raster.getDataBuffer();
-		
+
 		Media userMedia2 = new Media();
 		addMedia(userMedia2, data.getData());
 		userMedia2.setCaption("me and my cattt");
