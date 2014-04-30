@@ -1,6 +1,6 @@
 package edu.neumont.csc380.cms.model;
 
-import edu.neumont.csc280.cms.exception.BadMimeTypeException;
+import edu.neumont.csc380.cms.exception.BadMimeTypeException;
 
 public enum MediaType {
 	JPEG(false), PNG(false), MOV(true), MP4(true);

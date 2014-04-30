@@ -1,4 +1,4 @@
-package edu.neumont.csc280.cms.exception;
+package edu.neumont.csc380.cms.exception;
 
 public class BadMimeTypeException extends RuntimeException {
 

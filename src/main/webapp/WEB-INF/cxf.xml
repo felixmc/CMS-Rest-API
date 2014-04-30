@@ -11,7 +11,7 @@
     <import resource="classpath:META-INF/cxf/cxf.xml"/>
     <import resource="classpath:META-INF/cxf/cxf-servlet.xml"/>
 
-    <context:component-scan base-package="edu.neumont.csc380.cms.service"/>
+    <context:component-scan base-package="edu.neumont.csc380.cms"/>
 	
     <jaxrs:server id="jaxrsService" address="/">
        <jaxrs:serviceBeans>
@@ -23,6 +23,8 @@
 	    	    <property name="dropRootElement" value="true" />
 	        	<property name="supportUnwrapped" value="true" />
 	    	</bean>
+	    	<bean class="edu.neumont.csc380.cms.exception.BadMimeTypeMapper" />
+	    	<bean class="edu.neumont.csc380.cms.exception.AuthorizationMapper" />
 		</jaxrs:providers>
 	   
 	</jaxrs:server>
