@@ -14,8 +14,8 @@ import javax.ws.rs.core.Response;
 import org.apache.cxf.jaxrs.ext.multipart.Multipart;
 
 @Path("/media")
-@Consumes("application/json")
-@Produces("application/json")
+@Consumes("application/vnd.neumont.edu.media-v1+json")
+@Produces("application/vnd.neumont.edu.media-v1+json")
 public interface MediaService {
 	@GET
 	@Path("/{mediaId}")

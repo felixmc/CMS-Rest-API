@@ -28,7 +28,6 @@ public class MediaServiceImpl implements MediaService {
 		}
 	}
 
-	// TODO: return actual data
 	public Response getMediaData(Long id) {
 		Media media = CMSData.getInstance().removeMedia(id);
 
@@ -118,7 +117,6 @@ public class MediaServiceImpl implements MediaService {
 		} else {
 			Media media = new Media();
 			media.setCaption(caption);
-			media.setOwnerId(0); // TODO: get owner from authorization
 
 			System.out.println("TYPE: " + contentType.length);
 
@@ -126,6 +124,7 @@ public class MediaServiceImpl implements MediaService {
 
 			cms.addMedia(media, data);
 			auction.addMedia(media);
+			media.setOwnerId(0); // TODO: get owner from authorization
 			// TODO: add media to user
 
 			media.setMediaLocation("/media/data/" + media.getId() + "/data");
