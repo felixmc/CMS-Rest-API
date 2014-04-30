@@ -47,7 +47,7 @@ public interface MediaService {
 	Response setUserProfilePicture(@PathParam("userId") Long id,
 			@Multipart(value = "caption") String s,
 			@Multipart(value = "media") byte[] data,
-			@HeaderParam("content-type") String contentType);
+			@Multipart(value = "type") String type);
 
 	@POST
 	@Path("/auction/{auctionId}")
@@ -55,6 +55,5 @@ public interface MediaService {
 	Response addAuctionMedia(@PathParam("auctionId") Long id,
 			@Multipart(value = "caption") String s,
 			@Multipart(value = "media") byte[] data,
-			@HeaderParam("content-type") String[] contentType);
-
+			@Multipart(value = "type") String type);
 }

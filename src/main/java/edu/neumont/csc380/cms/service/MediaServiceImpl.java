@@ -5,8 +5,10 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
+import javax.ws.rs.core.Context;
 import javax.ws.rs.core.Response;
 
+import org.apache.cxf.jaxrs.ext.MessageContext;
 import org.springframework.stereotype.Service;
 
 import edu.neumont.csc380.cms.model.Auction;
@@ -17,6 +19,9 @@ import edu.neumont.csc380.cms.model.User;
 
 @Service("mediaService")
 public class MediaServiceImpl implements MediaService {
+	
+	@Context
+	private MessageContext context;
 
 	public Response getMedia(Long id) {
 		Media media = CMSData.getInstance().getMedia(id);
@@ -85,7 +90,7 @@ public class MediaServiceImpl implements MediaService {
 			media.setCaption(caption);
 			media.setOwnerId(0); // TODO: get owner from authorization
 
-			media.setType(MediaType.parse("image/png"));
+			media.setType(MediaType.parse(contentType));
 
 			cms.addMedia(media, data);
 			user.addMedia(media);
@@ -108,7 +113,7 @@ public class MediaServiceImpl implements MediaService {
 	}
 
 	public Response addAuctionMedia(Long auctionId, String caption,
-			byte[] data, String[] contentType) {
+			byte[] data, String contentType) {
 		CMSData cms = CMSData.getInstance();
 		Auction auction = cms.getAuction(auctionId);
 
@@ -118,9 +123,7 @@ public class MediaServiceImpl implements MediaService {
 			Media media = new Media();
 			media.setCaption(caption);
 
-			System.out.println("TYPE: " + contentType.length);
-
-			media.setType(MediaType.parse("image/png"));
+			media.setType(MediaType.parse(contentType));
 
 			cms.addMedia(media, data);
 			auction.addMedia(media);
