@@ -1,5 +1,7 @@
 package edu.neumont.csc380.cms.model;
 
+import edu.neumont.csc380.cms.exception.BadMimeTypeException;
+
 public enum MediaType {
 	JPEG(false), PNG(false), MOV(true), MP4(true);
 
@@ -29,7 +31,7 @@ public enum MediaType {
 		case ("video/quicktime"):
 			return MOV;
 		default:
-			throw new RuntimeException("Bad MIME type.");
+			throw new BadMimeTypeException();
 		}
 	}
 }
