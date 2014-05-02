@@ -9,7 +9,8 @@ import javax.imageio.ImageIO;
 import javax.ws.rs.core.Response;
 
 import org.apache.cxf.jaxrs.client.JAXRSClientFactory;
-import org.apache.cxf.jaxrs.provider.json.JSONProvider;
+
+import com.fasterxml.jackson.jaxrs.json.JacksonJaxbJsonProvider;
 
 import edu.neumont.csc380.cms.model.Media;
 import edu.neumont.csc380.cms.service.MediaService;
@@ -17,7 +18,7 @@ import edu.neumont.csc380.cms.service.MediaService;
 public class CMSClient {
 	private MediaService service = JAXRSClientFactory.create(
 			"http://localhost:8080/CMS-server/api", MediaService.class,
-			Arrays.asList(new JSONProvider<Object>()));
+			Arrays.asList(new JacksonJaxbJsonProvider()));
 
 	public Response getMedia(Long id) {
 		return service.getMedia(id);
