@@ -10,7 +10,6 @@ import org.apache.cxf.interceptor.security.AuthenticationException;
 public class AuthorizationMapper implements
 		ExceptionMapper<AuthenticationException> {
 
-	@Override
 	public Response toResponse(AuthenticationException e) {
 		return Response.status(401).build();
 	}

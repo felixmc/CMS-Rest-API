@@ -11,6 +11,7 @@ import javax.ws.rs.core.Response;
 import org.apache.cxf.jaxrs.client.JAXRSClientFactory;
 import org.apache.cxf.jaxrs.provider.json.JSONProvider;
 
+import edu.neumont.csc380.cms.model.Media;
 import edu.neumont.csc380.cms.service.MediaService;
 
 public class CMSClient {
@@ -54,7 +55,8 @@ public class CMSClient {
 
 	public static void main(String[] args) {
 		CMSClient c = new CMSClient();
-		System.out.println(c.getAuctionMedia(2L).getEntity().toString());
+		Media med = c.getAuctionMedia(2L).readEntity(Media.class);
+		System.out.println(med.getCaption());
 		System.out.println(c.getUserMedia(1L));
 
 		testAuctionImageUpload(c);

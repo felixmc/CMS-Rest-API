@@ -22,6 +22,7 @@
 		    <bean class="org.apache.cxf.jaxrs.provider.json.JSONProvider">
 	    	    <property name="dropRootElement" value="true" />
 	        	<property name="supportUnwrapped" value="true" />
+	        	<property name="mediaType" value="application/vnd.neumont.edu.media-v1+json" />
 	    	</bean>
 	    	<bean class="edu.neumont.csc380.cms.exception.BadMimeTypeMapper" />
 	    	<bean class="edu.neumont.csc380.cms.exception.AuthorizationMapper" />
