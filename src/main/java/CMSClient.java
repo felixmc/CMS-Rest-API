@@ -10,7 +10,15 @@ import edu.neumont.csc380.cms.model.Media;
 import edu.neumont.csc380.cms.service.MediaService;
 
 public class CMSClient{
-	private MediaService service = JAXRSClientFactory.create("http://localhost:8080/CMS-server/api", MediaService.class, Arrays.asList(new JSONProvider<Object>()));
+	private JSONProvider<Object> json;
+	private MediaService service;
+	
+	public CMSClient(){
+		 json = new JSONProvider<Object>();
+		 json.setDropRootElement(true);
+		 json.setSupportUnwrapped(true);
+		 service = JAXRSClientFactory.create("http://localhost:8080/CMS-server/api", MediaService.class, Arrays.asList(json));
+	}
 	
 	public Response getMedia(Long id) {
 		return service.getMedia(id);
@@ -46,7 +54,8 @@ public class CMSClient{
 
 	public static void main(String[] args) {
 		CMSClient c = new CMSClient();
-		System.out.println(c.getAuctionMedia(2L).getEntity().toString());
+		Media med = c.getAuctionMedia(2L).readEntity(Media.class);
+		System.out.println(med.getCaption());
 		System.out.println(c.getUserMedia(1L));
 	}
 }
